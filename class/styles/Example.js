@@ -14,11 +14,19 @@ export const PwInput = styled.input ``
 export const LoginButton = styled.button ``
 export const Wrapper = styled.div `
     background-color: skyblue;
-    width: 300px;
+    width: 400px;
     height: 300px;
     display: flex;
-    flex-direction: center;
+    flex-direction: column;
     justify-content: center;
     height: 300px;
     width: 300px;
 `
+ return(
+        <Wrapper>
+            <Title>로그인화면</Title>
+            아이디: <IdInput type="text" /><br />
+            비밀번호: <PwInput type="password" /><br />
+            <LoginButton>로그인</LoginButton>
+        </Wrapper>
+    )
