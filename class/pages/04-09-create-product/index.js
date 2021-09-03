@@ -13,29 +13,32 @@ const CREATE_PRODUCT = gql`
     }
 `
 
-export default function GraohqlMutationProductPage() {
+export default function CreateMutationProductPage() {
     const [createProduct] = useMutation(CREATE_PRODUCT)
     const [seller, setSeller] = useState("")
     const [name, setName] = useState("")
     const [detail, setDetail] = useState("")
-    const [price, setPrice] = useState ("")
+    const [price, setPrice] = useState("")
+    
 
     async function onClickSubmit() {
         const result = await createProduct({
             variables: {
-                seller: "영희",
+                seller: "Cristiano Ronaldo",
                 createProductInput: {
-                    name: "키보드",
-                    detail: "아주 좋은 키보드",
-                    price: 5000
+                    name:"아이폰",
+                    detail: "아주 좋은",
+                    price: 2222222          
+                    
                 }
             }
         })
-    
+        
     }
-     
+
     function onChangeSeller(event) {
         setSeller(event.target.value)
+        
     }
     function onChangeName(event) {
         setName(event.target.value)
@@ -49,7 +52,6 @@ export default function GraohqlMutationProductPage() {
         setPrice(event.target.value)
         
     }
-
     async function onClickSubmit() {
         const result = await createProduct({
             variables: {
@@ -57,23 +59,21 @@ export default function GraohqlMutationProductPage() {
                 createProductInput: {
                     name: name,
                     detail: detail,
-                    price : Number(price)
+                    price: Number(price)
                 }
             }
         })
         console.log(result)
-        
     }
 
-
-    return (
-        <>
-            판매자: <input type="text" onChange={ onChangeSeller}/>
-            상품명:<input type="text" onChange={ onChangeName }/>
-            상품상세:<input type="text" onChange={ onChangeDetail }/>
-            상품가격:<input type="text" onChange={  onChangePrice}/>
-            <button onClick={onClickSubmit}>상품 등록히기!!</button>
-        </>
-    )
-    
+     
+        return (
+            <>
+                판매자:<input type="text" onChange ={ onChangeSeller }/>
+                상품명:<input type="text" onChange ={ onChangeName } />
+                상품상세:<input type="text" onChange ={ onChangeDetail } />
+                상품가격:<input type="text" onChange ={ onChangePrice } />
+                <button onClick={onClickSubmit}>상품 등록하기</button>
+            </>
+        )
 }
