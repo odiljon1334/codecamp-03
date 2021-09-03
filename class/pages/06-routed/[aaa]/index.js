@@ -23,6 +23,7 @@ export default function RouterPag() {
             productId : router.query.aaa
         }
     })
+    //
 
     return (
         <>
